@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, Terminal, Sparkles, Loader2 } from "lucide-react";
-import { generateScript } from "@/lib/gemini.ts";
+import { generateScript } from "@/lib/gemini";
 
 export const GeminiChat: React.FC = () => {
     const [input, setInput] = useState("");
