@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 export default function Dashboard() {
     const router = useRouter();
     const [state, setState] = useState<AppState>({
-        currentScreen: 'ARENA',
+        currentScreen: 'arena',
         recordedBlob: null,
         subtitles: [],
         selectedStyleId: 'ryu_classic'
@@ -19,7 +19,7 @@ export default function Dashboard() {
     const handleComplete = (blob: Blob, subs: SubtitleSegment[]) => {
         setState(prev => ({
             ...prev,
-            currentScreen: 'RESULT',
+            currentScreen: 'result',
             recordedBlob: blob,
             subtitles: subs,
         }));
@@ -28,7 +28,7 @@ export default function Dashboard() {
     const handleRetry = () => {
         setState(prev => ({
             ...prev,
-            currentScreen: 'ARENA',
+            currentScreen: 'arena',
             recordedBlob: null,
             subtitles: [],
         }));
@@ -43,14 +43,14 @@ export default function Dashboard() {
             <AnimatedGlobe />
 
             <div className="relative z-10 h-full">
-                {state.currentScreen === 'ARENA' && (
+                {state.currentScreen === 'arena' && (
                     <BattleArenaScreen
                         onComplete={handleComplete}
                         onBack={handleHome}
                     />
                 )}
 
-                {state.currentScreen === 'RESULT' && state.recordedBlob && (
+                {state.currentScreen === 'result' && state.recordedBlob && (
                     <ResultScreen
                         videoBlob={state.recordedBlob}
                         subtitles={state.subtitles}
